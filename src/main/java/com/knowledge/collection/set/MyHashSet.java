@@ -1,9 +1,6 @@
 package com.knowledge.collection.set;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.knowledge.collection.bean.Param;
 
 import java.util.*;
 
@@ -22,80 +19,36 @@ public class MyHashSet {
     }
 
     static void treeSet() {
-        Set<SetParam> setParams = new TreeSet<>();
-        init(setParams);
-        print(setParams);
+        Set<Param> params = new TreeSet<>();
+        init(params);
+        print(params);
     }
 
-    static void init(Set<SetParam> setParams) {
-        SetParam setParam;
+    static void init(Set<Param> params) {
+        Param param;
         for (int i = 0; i < 15; i+=2) {
-            setParam = new SetParam();
-            setParam.setCode(i);
-            setParam.setValue("value:"+i);
-            setParams.add(setParam);
+            param = new Param();
+            param.setCode(i);
+            param.setValue("value:"+i);
+            params.add(param);
         }
-        setParam = new SetParam(0,"String");
-        setParams.add(new SetParam(11, "ss"));
-        setParams.add(setParam);
+        param = new Param(0,"String");
+        params.add(new Param(11, "ss"));
+        params.add(param);
     }
 
-    static void print(Set<SetParam> setParams) {
-        System.out.println(setParams.size());
-        System.out.println(setParams.toString());
-        for (SetParam setParam : setParams) {
-            System.out.println(setParam);
+    static void print(Set<Param> params) {
+        System.out.println(params.size());
+        System.out.println(params.toString());
+        for (Param param : params) {
+            System.out.println(param);
         }
     }
 
     static void hashSet() {
-        Set<SetParam> setParams = new HashSet<>(16);
-        init(setParams);
-        print(setParams);
-    }
-
-
-
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    static class SetParam implements Comparable{
-        private int code;
-        private String value;
-
-        @Override
-        public String toString() {
-            return "SetParam{" +
-                    "code=" + code +
-                    ", value='" + value + '\'' +
-                    '}'+super.toString();
-        }
-
-
-        @Override
-        public boolean equals(Object o) {
-            if (o == null) {
-                return false;
-            }
-            return code == ((SetParam)o).getCode();
-        }
-
-        @Override
-        public int hashCode() {
-            return (code >> 5 - 1)  + ((value != null)?value.hashCode():0);
-        }
-
-        /**
-         * 用于TreeSet排序
-         * @param o
-         * @return
-         */
-        @Override
-        public int compareTo(Object o) {
-            int code = ((SetParam)o).getCode();
-            return this.code - code;
-        }
+        Set<Param> params = new HashSet<>(16);
+        init(params);
+        print(params);
     }
 
 
