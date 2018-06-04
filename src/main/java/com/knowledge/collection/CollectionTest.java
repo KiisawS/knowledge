@@ -1,6 +1,11 @@
 package com.knowledge.collection;
 
-/*** 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+
+/***
  * @ClassName CollectionTest
  * <p>Description: </p>
  * @author TF015582
@@ -8,4 +13,10 @@ package com.knowledge.collection;
  * <p>Company: 杭州传化货嘀科技有限公司</p> 
  */
 public class CollectionTest {
+    private HashMap hashMap;
+    private LinkedHashMap linkedHashMap;
+
+    private ArrayList arrayList;
+    private LinkedList linkedList;
+
 }
