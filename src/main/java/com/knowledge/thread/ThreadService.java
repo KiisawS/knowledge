@@ -1,6 +1,6 @@
 package com.knowledge.thread;
 
-import org.omg.CORBA.TIMEOUT;
+import com.knowledge.utils.SleepUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

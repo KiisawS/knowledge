@@ -1,6 +1,6 @@
 package com.knowledge.collection;
 
-import com.knowledge.thread.SleepUtil;
+import com.knowledge.utils.SleepUtil;
 
 import java.util.HashMap;
 import java.util.Map;
