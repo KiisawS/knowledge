@@ -3,11 +3,9 @@ package com.knowledge.utils;
 import java.util.concurrent.TimeUnit;
 
 /***
- * @ClassName SleepUtil
- * <p>Description: </p>
- * @author TF015582
- * @date 2018/6/4 10:29
- * <p>Company: 杭州传化货嘀科技有限公司</p> 
+ * @author KiisawS
+ * @date 2018-6-6
+ * 线程睡眠类
  */
 public class SleepUtil {
 
