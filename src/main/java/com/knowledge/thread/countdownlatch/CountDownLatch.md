@@ -26,5 +26,12 @@ CyclicBarrier一般用于一组线程互相等待至某个状态,然后这一组
 3. LOL,进入游戏时,只有全部加载100%,才会正式进入游戏.
 ###CountDownLatch 类中主要的方法?
 1. await()
-2. await(long time,TimeUtil timeUtil)
+2. await(long timeout,TimeUtil util)
 3. countDown()
+
+
+
+CountDownLatch当计数到0时，计数无法被重置；
+CyclicBarrier计数达到指定值时，计数置为0重新开始。
+CountDownLatch每次调用countDown()方法计数减一，调用await()方法只进行阻塞，对计数没任何影响；
+CyclicBarrier只有一个await()方法，调用await()方法计数加1，若加1后的值不等于构造方法的值，则线程阻塞。
