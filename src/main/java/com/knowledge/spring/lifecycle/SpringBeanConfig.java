@@ -1,6 +1,5 @@
-package com.knowledge.spring;
+package com.knowledge.spring.lifecycle;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +22,7 @@ public class SpringBeanConfig {
     }
 
     public static void main(String []args) {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.knowledge.spring");
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext("com.knowledge.spring.lifecycle");
         System.out.println(applicationContext.getBean(SpringBeanLifeCycle.class));
         System.out.println(applicationContext.getBean(SpringBeanLifeCycle.class));
 

@@ -1,4 +1,4 @@
-package com.knowledge.spring;
+package com.knowledge.spring.lifecycle;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
