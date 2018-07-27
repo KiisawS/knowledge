@@ -28,4 +28,9 @@ public class ThreadController {
     public void sche2() {
         threadService.scheStopByOtherSche();
     }
+
+    @RequestMapping("/test")
+    public void test() {
+        threadService.test();
+    }
 }

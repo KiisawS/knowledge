@@ -6,6 +6,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
@@ -72,4 +75,39 @@ public class ThreadService {
         SleepUtil.sleepSec(20);
         LOG.info("主线程结束.");
     }
+
+
+    public void test() {
+        final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+        final List<String> datas = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            datas.add("my data value " + i);
+        }
+        executorService.scheduleAtFixedRate(new Runnable() {
+            ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
+            boolean stop = false;
+            @Override
+            public void run() {
+                if (stop) {
+                    threadLocal.remove();
+                    executorService.shutdown();
+                    LOG.info("任务结束");
+                    //true  false
+                    LOG.info("isShutdown?{},isTerminated?{}", executorService.isShutdown(), executorService.isTerminated());
+                } else {
+                    Integer part = threadLocal.get();
+                    if (part == null) {
+                        part = 0;
+                    }
+                    String data = datas.get(part);
+                    LOG.info("数值：{}", data);
+                    if(++part >= datas.size()) {
+                        stop = true;
+                    }
+                    threadLocal.set(part);
+                }
+            }
+        },0,1000, TimeUnit.MILLISECONDS);
+    }
+
 }

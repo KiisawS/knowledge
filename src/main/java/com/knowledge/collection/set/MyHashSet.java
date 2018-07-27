@@ -3,6 +3,7 @@ package com.knowledge.collection.set;
 import com.knowledge.collection.bean.Param;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /***
  * @ClassName MyHashSet
@@ -16,6 +17,16 @@ public class MyHashSet {
     public static void main(String []args) {
         hashSet();
         treeSet();
+        new LinkedHashSet();
+//                EnumSet;
+        new HashSet();
+        Set<String> set = new TreeSet<>();
+        set.add("");
+        new Hashtable();
+        new HashMap<>();
+        new TreeMap<>();
+        new LinkedHashMap<>();
+        new ConcurrentHashMap<>();
     }
 
     static void treeSet() {
