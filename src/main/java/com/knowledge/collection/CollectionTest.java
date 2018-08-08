@@ -23,10 +23,16 @@ public class CollectionTest {
     private ArrayList arrayList;
     private LinkedList linkedList;
 
+    private Object object;
+
     public static void main(String[] args) {
         ClassUtil.printClassMsg(MyHashSet.class);
         for (Method method : Integer.class.getMethods()) {
             System.out.println(method);
         }
-}
+        String[] sts = new String[10];
+        System.out.println(sts);
+        System.out.println(sts.length);
+        System.out.println(sts[0]);
+    }
 }

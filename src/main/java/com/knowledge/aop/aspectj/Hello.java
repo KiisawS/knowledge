@@ -1,20 +1,24 @@
 package com.knowledge.aop.aspectj;
 
-/*** 
+import lombok.extern.slf4j.Slf4j;
+
+/***
  * @ClassName Hello
  * <p>Description: </p>
  * @author TF015582
  * @date 2018/7/20 16:53
  * <p>Company: 杭州传化货嘀科技有限公司</p> 
  */
-public class Hello {
+@Slf4j
+public class Hello implements Say{
 
-    public void sayHello(String name) {
-        System.out.println(name + "  hello");
+    @Override
+    public void say(String name) {
+        log.info("hello " + name);
     }
 
     public static void main(String []args) {
-        Hello hello = new Hello();
-        hello.sayHello("1231321321");
+        SayAspect sayAspect = new SayAspect(new Hello());
+        sayAspect.say("1231321321");
     }
 }
