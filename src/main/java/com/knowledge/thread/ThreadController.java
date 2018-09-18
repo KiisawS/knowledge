@@ -33,4 +33,10 @@ public class ThreadController {
     public void test() {
         threadService.test();
     }
+
+
+    @RequestMapping("/scheduled")
+    public void scheduled(int size) {
+        threadService.scheduled(size);
+    }
 }

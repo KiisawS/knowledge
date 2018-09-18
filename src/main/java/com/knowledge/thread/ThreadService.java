@@ -110,4 +110,20 @@ public class ThreadService {
         },0,1000, TimeUnit.MILLISECONDS);
     }
 
+    public void scheduled(final int size) {
+        final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+
+        executor.scheduleAtFixedRate(new Runnable() {
+            private int count;
+            @Override
+            public void run() {
+                if (count == size) {
+                    executor.shutdown();
+                }
+                LOG.info("当前数值{}" ,count++);
+            }
+        }, 0, 3000, TimeUnit.MILLISECONDS);
+
+        SleepUtil.sleepMin(1);
+    }
 }
